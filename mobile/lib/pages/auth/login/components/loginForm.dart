@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile/locale/constants/constants.dart';
+import 'package:mobile/pages/auth/login/login_bloc.dart';
+import 'package:mobile/pages/auth/login/login_state.dart';
 import 'package:mobile/shared/widgets/formWidgets/default_button.dart';
 
+import '../../form_submission_status.dart';
+
 class LoginForm extends StatefulWidget {
-  LoginForm({Key? key}) : super(key: key);
+  LoginForm({key}) : super(key: key);
 
   @override
   _LoginFormState createState() => _LoginFormState();
@@ -15,23 +20,31 @@ class _LoginFormState extends State<LoginForm> {
   late String password;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          _buildUsernameFormField(),
-          SizedBox(
-            height: kFieldHeightDefaultSpacing,
-          ),
-          _buildPasswordFormField(),
-          SizedBox(
-            height: kFieldHeightDefaultSpacing,
-          ),
-          DefaultButton(
-            btnLabel: "Sign in",
-            press: () {},
-          ),
-        ],
+    return BlocListener<LoginBloc, LoginState>(
+      listener: (context, state) {
+        final formStatus = state.formStatus;
+        if (formStatus is SubmissionFailed) {
+          _showSnackBar(context, formStatus.exception.toString());
+        }
+      },
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            _buildUsernameFormField(),
+            SizedBox(
+              height: kFieldHeightDefaultSpacing,
+            ),
+            _buildPasswordFormField(),
+            SizedBox(
+              height: kFieldHeightDefaultSpacing,
+            ),
+            DefaultButton(
+              btnLabel: "Sign in",
+              press: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -70,5 +83,10 @@ class _LoginFormState extends State<LoginForm> {
         ),
       ),
     );
+  }
+
+  void _showSnackBar(BuildContext context, String message) {
+    final snackBar = SnackBar(content: Text(message));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

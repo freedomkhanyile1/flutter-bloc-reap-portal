@@ -30,11 +30,11 @@ LinearGradient kPrimaryGradientColor = LinearGradient(
 
 
 // font Size;
-const double? kH1 = 32;
-const double? kH2 = 25;
-const double? kH3 = 18;
-const double? p = 16;
-const double? t = 12;
+const double kH1 = 32;
+const double kH2 = 25;
+const double kH3 = 18;
+const double p = 16;
+const double t = 12;
 
 // font weight;
 const FontWeight fontWeightLight = FontWeight.w400;
