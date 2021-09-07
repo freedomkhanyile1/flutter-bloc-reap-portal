@@ -1,0 +1,1 @@
+﻿"I hereby confirm that I have read and understood the Experian Terms and Conditions and that I have verified the customer’s identity by validating their identity document/driver’s licence and uploaded it to the system. I also presented/read out the Customer Consent for their consideration and acceptance, before requesting their credit information via the Experian System.";
