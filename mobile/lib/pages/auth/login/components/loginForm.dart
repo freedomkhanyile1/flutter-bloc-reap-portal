@@ -76,7 +76,7 @@ class _LoginFormState extends State<LoginForm> {
           decoration: InputDecoration(
             labelText: "Password",
             hintText: "Enter your password",
-            labelStyle: TextStyle(color: kPrimaryColor),
+            labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
             hintStyle: TextStyle(
               color: Colors.grey.withOpacity(0.75),
             ),
@@ -104,7 +104,7 @@ class _LoginFormState extends State<LoginForm> {
           decoration: InputDecoration(
             labelText: "Username",
             hintText: "Enter username or ID #",
-            labelStyle: TextStyle(color: kPrimaryColor),
+            labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
             hintStyle: TextStyle(
               color: Colors.grey.withOpacity(0.75),
             ),
