@@ -7,6 +7,6 @@ class AuthRepository {
     print("logged in");
 
     // uncomment to handle an exception.
-    // throw Exception("login failed");
+    throw Exception("login failed");
   }
 }
