@@ -14,9 +14,7 @@ class DefaultButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       height: 50,
-      child: FlatButton(
-        color: kPrimaryColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: ElevatedButton(
         child: Text(
           btnLabel,
           style: TextStyle(
@@ -25,6 +23,16 @@ class DefaultButton extends StatelessWidget {
           ),
         ),
         onPressed: press,
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          elevation: MaterialStateProperty.all(0),
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/locale/constants/theme_constants.dart';
+import 'package:mobile/locale/enums/menu_state_enum.dart';
+import 'package:mobile/shared/shared.dart';
 
 class HomePage extends StatelessWidget {
   static String routeName = "/home";
@@ -8,6 +10,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
+      // TODO add Navigator tiles.
+      bottomNavigationBar: CustomBottomBar(
+        selectedMenu: MenuState.home,
+      ),
     );
   }
 
