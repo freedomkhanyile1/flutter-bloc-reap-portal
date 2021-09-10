@@ -5,6 +5,7 @@ import 'package:mobile/locale/constants/theme_constants.dart';
 import 'package:mobile/pages/auth/login/login_bloc.dart';
 import 'package:mobile/pages/auth/login/login_event.dart';
 import 'package:mobile/pages/auth/login/login_state.dart';
+import 'package:mobile/pages/home/home_page.dart';
 import 'package:mobile/shared/widgets/formWidgets/default_button.dart';
 
 import '../../form_submission_status.dart';
@@ -60,7 +61,9 @@ class _LoginFormState extends State<LoginForm> {
                 btnLabel: "Sign in",
                 press: () {
                   if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
                     context.read<LoginBloc>().add(LoginSubmitted());
+                    Navigator.pushNamed(context, HomePage.routeName);
                   }
                 },
               );
