@@ -1,4 +1,4 @@
-import 'package:mobile/pages/auth/form_submission_status.dart';
+part of 'login_bloc.dart';
 
 class LoginState {
   final String username;
@@ -9,7 +9,6 @@ class LoginState {
 
   final FormSubmissionStatus formStatus;
 
-  // constructor
   LoginState({
     this.username = '',
     this.password = '',
@@ -17,8 +16,8 @@ class LoginState {
   });
 
   // copy with constructor ensures that we always carry over other fields
-  //when we deal with a particular field event see (login_event.dart)
-
+  // when we deal with a particular field event see (login_event.dart).
+  
   LoginState copyWith({
     String? username,
     String? password,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/locale/constants/theme_constants.dart';
 import 'package:mobile/locale/enums/menu_state_enum.dart';
-import 'package:mobile/pages/pages.dart';
+import 'package:mobile/pages/index.dart';
 
 class CustomBottomBar extends StatelessWidget {
   final MenuState selectedMenu;
@@ -46,9 +46,9 @@ class CustomBottomBar extends StatelessWidget {
           IconButton(
             onPressed: () => {},
             icon: Icon(
-              Icons.document_scanner_outlined,
+              Icons.workspaces_outline,
               size: 30,
-              color: MenuState.applications == selectedMenu
+              color: MenuState.workspace == selectedMenu
                   ? kPrimaryColor
                   : inActiveColor,
             ),
@@ -56,7 +56,7 @@ class CustomBottomBar extends StatelessWidget {
           IconButton(
             onPressed: () => {},
             icon: Icon(
-              Icons.workspaces_outline,
+              Icons.document_scanner_outlined,
               size: 30,
               color: MenuState.applications == selectedMenu
                   ? kPrimaryColor

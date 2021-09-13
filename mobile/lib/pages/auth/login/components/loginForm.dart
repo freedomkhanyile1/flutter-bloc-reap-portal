@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile/businessLogic/bloc/index.dart';
+import 'package:mobile/common/bloc/form_submission_status.dart';
 import 'package:mobile/locale/constants/constants.dart';
 import 'package:mobile/locale/constants/theme_constants.dart';
-import 'package:mobile/pages/auth/login/login_bloc.dart';
-import 'package:mobile/pages/auth/login/login_event.dart';
-import 'package:mobile/pages/auth/login/login_state.dart';
 import 'package:mobile/pages/home/home_page.dart';
 import 'package:mobile/shared/widgets/formWidgets/default_button.dart';
 
-import '../../form_submission_status.dart';
-
+ 
 class LoginForm extends StatefulWidget {
   LoginForm({key}) : super(key: key);
 
@@ -120,7 +118,7 @@ class _LoginFormState extends State<LoginForm> {
           validator: (value) =>
               state.isValidUsername ? null : 'Username is to short',
           onChanged: (value) => context.read<LoginBloc>().add(
-                LoginUsernameChanged(username: value),
+                LoginUserNameChanged(username: value),
               ),
         );
       },

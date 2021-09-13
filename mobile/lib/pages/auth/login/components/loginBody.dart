@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobile/locale/constants/constants.dart';
+import 'package:mobile/businessLogic/bloc/login/index.dart';
+import 'package:mobile/data/index.dart';
+ import 'package:mobile/locale/constants/constants.dart';
 import 'package:mobile/locale/constants/icon_constants.dart';
-import 'package:mobile/pages/auth/auth_repository.dart';
 import 'package:mobile/pages/auth/login/components/loginForm.dart';
-import 'package:mobile/pages/auth/login/login_bloc.dart';
  
 class LoginBody extends StatelessWidget {
   @override
