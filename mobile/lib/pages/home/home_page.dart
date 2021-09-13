@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome \n",
+                    "Welcome \nJon Doe",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -39,7 +39,45 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-          
+            SizedBox(
+              height: 400,
+              child: Column(
+                children: [
+                  Card(
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      child: ListTile(
+                        leading: FlutterLogo(),
+                        title: Text(
+                          'My Workspace',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      child: ListTile(
+                        leading: FlutterLogo(),
+                        title: Text(
+                          'Bonds Applications',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
