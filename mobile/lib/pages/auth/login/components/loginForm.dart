@@ -7,7 +7,6 @@ import 'package:mobile/locale/constants/theme_constants.dart';
 import 'package:mobile/pages/home/home_page.dart';
 import 'package:mobile/shared/widgets/formWidgets/default_button.dart';
 
- 
 class LoginForm extends StatefulWidget {
   LoginForm({key}) : super(key: key);
 
@@ -40,7 +39,10 @@ class _LoginFormState extends State<LoginForm> {
             SizedBox(
               height: kFieldHeightDefaultSpacing,
             ),
-            _buildLoginButton(),
+            SizedBox(
+              width: double.infinity,
+              child: _buildLoginButton(),
+            ),
           ],
         ),
       ),

@@ -22,63 +22,66 @@ class HomePage extends StatelessWidget {
       appBar: _buildAppBar(),
       body: Container(
         padding: const EdgeInsets.all(kDefaultPadding),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Welcome \nJon Doe",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 400,
-              child: Column(
-                children: [
-                  Card(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: ListTile(
-                        leading: FlutterLogo(),
-                        title: Text(
-                          'My Workspace',
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios,
+        child: SingleChildScrollView ( 
+          physics: NeverScrollableScrollPhysics(),         
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome \nJon Doe",
+                      style: TextStyle(
                           color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 400,
+                child: Column(
+                  children: [
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        child: ListTile(
+                          leading: FlutterLogo(),
+                          title: Text(
+                            'My Workspace',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Card(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: ListTile(
-                        leading: FlutterLogo(),
-                        title: Text(
-                          'Bonds Applications',
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.black,
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        child: ListTile(
+                          leading: FlutterLogo(),
+                          title: Text(
+                            'Bonds Applications',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       // TODO add Navigator tiles.
