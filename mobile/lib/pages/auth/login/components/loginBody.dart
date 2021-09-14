@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile/businessLogic/bloc/login/index.dart';
+import 'package:mobile/common/bloc/index.dart';
 import 'package:mobile/data/index.dart';
- import 'package:mobile/locale/constants/constants.dart';
+import 'package:mobile/locale/constants/constants.dart';
 import 'package:mobile/locale/constants/icon_constants.dart';
-import 'package:mobile/pages/auth/login/components/loginForm.dart';
- 
+import 'package:mobile/locale/constants/theme_constants.dart';
+import 'package:mobile/shared/widgets/widgets.dart';
+
 class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginBloc(
-          authRepository: context.read<AuthRepository>(),
-        ),
+        authRepository: context.read<AuthRepository>(),
+      ),
       child: SafeArea(
         child: SizedBox(
           width: double.infinity,
@@ -22,7 +24,7 @@ class LoginBody extends StatelessWidget {
             ),
             child: SingleChildScrollView(
               child: Column(
-                children: <Widget>[
+                children: [
                   SizedBox(height: 10),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 16),
@@ -38,7 +40,15 @@ class LoginBody extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: kFieldDefaultSpacing),
-                  LoginForm(),
+                  BlocConsumer<LoginBloc, LoginState>(
+                    listener: (context, state) {
+                      final formStatus = state.formStatus;
+                      if (formStatus is SubmissionFailed) {
+                        _showSnackBar(context, formStatus.exception.toString());
+                      }
+                    },
+                    builder: (context, state) => _buildLoginBlocButton(),
+                  ),
                   SizedBox(height: kFieldDefaultSpacing),
                   SizedBox(
                     height: kFieldHeightDefaultSpacing,
@@ -50,5 +60,37 @@ class LoginBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildLoginBlocButton() {
+    return BlocBuilder<LoginBloc, LoginState>(
+      builder: (context, state) {
+        return state.formStatus is FormSubmitting
+            ? LinearProgressIndicator(
+                color: kPrimaryColor,
+                backgroundColor: Colors.white,
+              )
+            : DefaultButton(
+                btnLabel: "Continue",
+                press: () {
+                  context.read<LoginBloc>().add(LoginSubmitted());
+                  // Navigator.pushNamed(context, HomePage.routeName);
+                },
+              );
+      },
+    );
+  }
+
+  void _showSnackBar(BuildContext context, String message) {
+    final snackBar = SnackBar(
+      content: Text(
+        message,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: kPrimaryColor,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

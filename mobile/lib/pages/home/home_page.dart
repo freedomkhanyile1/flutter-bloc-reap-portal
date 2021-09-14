@@ -22,12 +22,12 @@ class HomePage extends StatelessWidget {
       appBar: _buildAppBar(),
       body: Container(
         padding: const EdgeInsets.all(kDefaultPadding),
-        child: SingleChildScrollView ( 
-          physics: NeverScrollableScrollPhysics(),         
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -42,37 +42,51 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 400,
+                height: kDefaultPadding / 2,
+              ),
+              SizedBox(
                 child: Column(
                   children: [
-                    Card(
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: ListTile(
-                          leading: FlutterLogo(),
-                          title: Text(
-                            'My Workspace',
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.black,
+                    GestureDetector(
+                      onTap: () => {}, // TODO navigate to a menu.
+                      child: Card(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          child: ListTile(
+                            leading: Image.asset(
+                              LogoConstants.bbIcon,
+                              height: 38,
+                            ),
+                            title: Text(
+                              'My Workspace',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Card(
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: ListTile(
-                          leading: FlutterLogo(),
-                          title: Text(
-                            'Bonds Applications',
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.black,
+                    GestureDetector(
+                      onTap: () => {},
+                      child: Card(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          child: ListTile(
+                            leading: Image.asset(
+                              LogoConstants.bbIcon,
+                              height: 38,
+                            ),
+                            title: Text(
+                              'Bonds Applications',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
