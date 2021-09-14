@@ -24,31 +24,7 @@ class LoginPage extends StatelessWidget {
       body: RepositoryProvider(
         create: (context) => AuthRepository(),
         child: LoginBody(),
-      ),
-      // body: ListView(
-      //   children: <Widget>[
-      //     ListTile(
-      //       title: Text(
-      //         'AzureAD OAuth',
-      //         style: Theme.of(context).textTheme.headline5,
-      //       ),
-      //     ),
-      //     ListTile(
-      //       leading: Icon(Icons.launch),
-      //       title: Text('Login'),
-      //       onTap: () {
-      //         login(context);
-      //       },
-      //     ),
-      //     ListTile(
-      //       leading: Icon(Icons.delete),
-      //       title: Text('Logout'),
-      //       onTap: () {
-      //         logout(context);
-      //       },
-      //     ),
-      //   ],
-      // ),
+      ),     
     );
   }
 

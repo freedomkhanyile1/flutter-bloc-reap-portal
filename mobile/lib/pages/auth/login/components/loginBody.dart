@@ -6,6 +6,7 @@ import 'package:mobile/data/index.dart';
 import 'package:mobile/locale/constants/constants.dart';
 import 'package:mobile/locale/constants/icon_constants.dart';
 import 'package:mobile/locale/constants/theme_constants.dart';
+import 'package:mobile/pages/home/index.dart';
 import 'package:mobile/shared/widgets/widgets.dart';
 
 class LoginBody extends StatelessWidget {
@@ -37,6 +38,14 @@ class LoginBody extends StatelessWidget {
                         ),
                       ),
                       height: 104,
+                    ),
+                  ),
+                  SizedBox(height: kFieldDefaultSpacing),
+                  Text(
+                    "Sign in using Active Directory",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
                     ),
                   ),
                   SizedBox(height: kFieldDefaultSpacing),
@@ -74,7 +83,7 @@ class LoginBody extends StatelessWidget {
                 btnLabel: "Continue",
                 press: () {
                   context.read<LoginBloc>().add(LoginSubmitted());
-                  // Navigator.pushNamed(context, HomePage.routeName);
+                  Navigator.pushNamed(context, HomePage.routeName);
                 },
               );
       },
